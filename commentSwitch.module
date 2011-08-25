@@ -1,0 +1,36 @@
+<?php
+
+function commentSwitch_node_operations() {
+  $operations = array(
+	'update_comments' => array(
+	  'label' => t('Disable comments'),
+	  'callback' => 'disableComments_node_operations_update',
+	  ),
+	array(
+	  'label' => t('Enable comments'),
+	  'callback' => 'enableComments_node_operations_update',
+	),
+  );
+  return $operations;
+}
+
+
+function disableComments_node_operations_update($nodes) {
+  foreach ($nodes as $nid) {
+	$node = node_load($nid);		
+	$node->comment = '0';
+	node_save($node);
+	watchdog("content", t('Disabled comments on ') . $node->title, NULL, WATCHDOG_NOTICE, l(t('view'),$node->path));
+  }
+
+}
+
+function enableComments_node_operations_update($nodes) {
+  foreach ($nodes as $nid) {
+	$node = node_load($nid);		
+	$node->comment = '2';
+	node_save($node);
+	watchdog("content", t('Enabled comments on ') . $node->title, NULL, WATCHDOG_NOTICE, l(t('view'),$node->path));
+  }
+}
+

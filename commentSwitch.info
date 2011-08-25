@@ -1,0 +1,19 @@
+; $Id: commentSwitch.info,v 1.3 2009/11/12 11:07:28 superfreshdk Exp $
+
+name = Comment Switch
+description = Provides a mechanism to disable and enable comments on a list of nodes 
+version = "6.1"
+core = "6.x"
+project = "commentSwitch"
+
+
+
+
+
+
+; Information added by drupal.org packaging script on 2009-11-12
+version = "6.x-1.x-dev"
+core = "6.x"
+project = "commentswitch"
+datestamp = "1258027454"
+
